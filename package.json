@@ -1,0 +1,47 @@
+{
+	"name": "db-prices-rest",
+	"description": "DB prices REST API",
+	"version": "0.1.0",
+	"keywords": [
+		"train",
+		"railway",
+		"fare",
+		"sparpreis",
+		"preis",
+		"DB",
+		"prices",
+		"preise",
+		"deutsch",
+		"allemand",
+		"german",
+		"bahn"
+	],
+	"main":         "index.js",
+	"files":        ["index.js"],
+	"author":       "Julius Tens <mail@juliuste.de>",
+	"homepage":     "https://github.com/juliuste/db-prices-rest",
+	"repository":   "juliuste/db-prices-rest",
+	"bugs":         "https://github.com/juliuste/db-prices-rest/issues",
+	"keywords":     ["public", "transport", "api", "http", "rest"],
+	"engines" :     {"node": ">=6"},
+	"dependencies": {
+		"config": "^1.20.1",
+		"express": "^4.13.4",
+		"spdy": "^3.3.3",
+		"hsts": "^1",
+		"corser": "^2",
+		"compression": "^1.6.2",
+		"nocache": "^1",
+		"db-prices": "juliuste/db-prices"
+	},
+	"peerDependencies": {
+		"forever": "^0.15"
+	},
+	"scripts": {
+		"start":    "forever start --uid db-prices-rest -a index.js",
+		"stop":     "forever stop db-prices-rest",
+		"ssh":      "ssh db-prices",
+		"deploy":   "./deploy"
+	},
+	"license": "MIT"
+}

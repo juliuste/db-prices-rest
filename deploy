@@ -1,0 +1,13 @@
+#!/bin/sh
+
+rsync -rav --delete \
+	--exclude '.*' \
+	--exclude node_modules \
+	. 'db-prices:~/db-prices-rest/'
+
+ssh db-prices "\
+cd ~/db-prices-rest
+npm i
+export NODE_ENV=production
+forever stop db-prices-rest
+forever start -a --uid db-prices-rest index.js"
