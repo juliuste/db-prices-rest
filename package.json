@@ -19,6 +19,7 @@
 	"main":         "index.js",
 	"files":        ["index.js"],
 	"author":       "Julius Tens <mail@juliuste.de>",
+	"contributors": ["Jannis R <mail@jannisr.de>"],
 	"homepage":     "https://github.com/juliuste/db-prices-rest",
 	"repository":   "juliuste/db-prices-rest",
 	"bugs":         "https://github.com/juliuste/db-prices-rest/issues",
