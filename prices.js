@@ -30,7 +30,11 @@ module.exports = (req, res, next) => {
 	if (+moment(dt).startOf('day') === +moment(now).startOf('day'))
 		duration = Math.floor((moment(dt).endOf('day') - dt) / 1000 / 60)
 
-	prices(req.query.from, req.query.to, new Date(+dt), {duration})
+	opt = JSON.parse(req.query.opt) || {}
+	if(opt==[]) opt={}
+	opt.duration = duration
+
+	prices(req.query.from, req.query.to, new Date(+dt), opt)
 	.then((data) => {
 		for(let dat of data) delete dat.offer.routes;
 		res.json(data)
