@@ -32,6 +32,7 @@
 		"corser": "^2",
 		"compression": "^1.6.2",
 		"nocache": "^1",
+		"moment-timezone": "^0.5.5",
 		"db-prices": "juliuste/db-prices"
 	},
 	"peerDependencies": {
