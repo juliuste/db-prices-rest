@@ -30,7 +30,7 @@ module.exports = (req, res, next) => {
 	if (+moment(dt).startOf('day') === +moment(now).startOf('day'))
 		duration = Math.floor((moment(dt).endOf('day') - dt) / 1000 / 60)
 
-	opt = JSON.parse(req.query.opt) || {}
+	opt = JSON.parse(req.query.opt || '{}') || {}
 	if(opt==[]) opt={}
 	opt.duration = duration
 
