@@ -6,11 +6,19 @@ const prices = require('db-prices')
 
 
 
+const err400 = (msg) => {
+	const e = new Error(msg)
+	e.statusCode = 400
+	return e
+}
+
+
+
 module.exports = (req, res, next) => {
 	if ('string' !== typeof req.query.from)
-		return next(new Error('missing from parameter.'))
+		return next(err400('missing from parameter.'))
 	if ('string' !== typeof req.query.to)
-		return next(new Error('missing to parameter.'))
+		return next(err400('missing to parameter.'))
 
 	if (/^[0-9]+$/.test(req.query.date))
 		req.query.date *= 1000 // convert to JS timestamp
