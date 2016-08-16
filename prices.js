@@ -7,6 +7,14 @@ const prices = require('db-prices')
 
 
 module.exports = (req, res, next) => {
+	if ('string' !== typeof req.query.from)
+		return next(new Error('missing from parameter.'))
+	if ('string' !== typeof req.query.to)
+		return next(new Error('missing to parameter.'))
+
+	if (/^[0-9]+$/.test(req.query.date))
+		req.query.date *= 1000 // convert to JS timestamp
+	else if (!req.query.date) req.query.date = Date.now()
 	const dt = moment(req.query.date).tz(config.timezone)
 	const now = moment().tz(config.timezone)
 
