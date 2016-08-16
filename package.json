@@ -1,7 +1,7 @@
 {
 	"name": "db-prices-rest",
 	"description": "DB prices REST API",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"keywords": [
 		"train",
 		"railway",
@@ -34,6 +34,7 @@
 		"compression": "^1.6.2",
 		"nocache": "^1",
 		"moment-timezone": "^0.5.5",
+		"cli-native": "^1.0.0",
 		"db-prices": "juliuste/db-prices"
 	},
 	"peerDependencies": {

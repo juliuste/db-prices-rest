@@ -3,6 +3,7 @@
 const moment = require('moment-timezone')
 const config = require('config')
 const prices = require('db-prices')
+const parse  = require('cli-native').to
 
 
 
@@ -30,9 +31,13 @@ module.exports = (req, res, next) => {
 	if (+moment(dt).startOf('day') === +moment(now).startOf('day'))
 		duration = Math.floor((moment(dt).endOf('day') - dt) / 1000 / 60)
 
-	opt = JSON.parse(req.query.opt || '{}') || {}
-	if(opt==[]) opt={}
-	opt.duration = duration
+	const opt = {duration}
+	if ('class' in req.query) opt.class = +req.query.class
+	if ('travellers' in req.query) opt.travellers = JSON.parse(parse(req.query.travellers) || "{}")
+	if ('noICETrains' in req.query) opt.noICETrains = parse(req.query.noICETrains)
+	if ('transferTime' in req.query) opt.transferTime = +req.query.transferTime
+	if ('duration' in req.query) opt.duration = +req.query.duration
+	if ('preferFastRoutes' in req.query) opt.preferFastRoutes = parse(req.query.preferFastRoutes)
 
 	prices(req.query.from, req.query.to, new Date(+dt), opt)
 	.then((data) => {
