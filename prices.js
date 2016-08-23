@@ -41,7 +41,13 @@ module.exports = (req, res, next) => {
 
 	prices(req.query.from, req.query.to, new Date(+dt), opt)
 	.then((data) => {
-		for(let dat of data) delete dat.offer.routes;
+		for(let dat of data){
+			for(let trip of trips){
+				trip.start = trip.start.unix()
+				trip.end = trip.end.unix()
+			}
+			delete dat.offer.routes;
+		}
 		res.json(data)
 	}, next)
 	.catch(next)
