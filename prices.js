@@ -43,8 +43,8 @@ module.exports = (req, res, next) => {
 	.then((data) => {
 		for(let dat of data){
 			for(let trip of dat.trips){
-				trip.start = trip.start.unix()
-				trip.end = trip.end.unix()
+				trip.start = moment(trip.start).unix()
+				trip.end = moment(trip.end).unix()
 			}
 			delete dat.offer.routes;
 		}
