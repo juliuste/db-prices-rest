@@ -42,7 +42,7 @@ module.exports = (req, res, next) => {
 	prices(req.query.from, req.query.to, new Date(+dt), opt)
 	.then((data) => {
 		for(let dat of data){
-			for(let trip of trips){
+			for(let trip of dat.trips){
 				trip.start = trip.start.unix()
 				trip.end = trip.end.unix()
 			}
