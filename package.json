@@ -1,7 +1,7 @@
 {
 	"name": "db-prices-rest",
 	"description": "DB prices REST API",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"keywords": [
 		"public",
 		"transport",
@@ -24,16 +24,15 @@
 		"node": ">=6"
 	},
 	"dependencies": {
-		"config": "^1.20.1",
-		"express": "^4.13.4",
-		"spdy": "^3.3.3",
-		"hsts": "^1",
-		"corser": "^2",
-		"compression": "^1.6.2",
-		"nocache": "^1",
-		"moment-timezone": "^0.5.5",
 		"cli-native": "^1.0.0",
-		"db-prices": "juliuste/db-prices"
+		"compression": "^1.6.2",
+		"config": "^1.20.1",
+		"corser": "^2",
+		"db-prices": "juliuste/db-prices",
+		"express": "^4.13.4",
+		"http": "0.0.0",
+		"moment-timezone": "^0.5.5",
+		"nocache": "^1"
 	},
 	"peerDependencies": {
 		"forever": "^0.15"
